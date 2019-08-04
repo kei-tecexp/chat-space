@@ -1,4 +1,5 @@
 .side {
+  box-sizing: border-box; //ここ
   color: $white;
   width: 300px;
   .header {
@@ -24,17 +25,22 @@
   }  
   .groups {
     height: calc(100vh - 100px);
-    padding: 0 20px;
+    padding: 20px 20px 0 20px;
     background-color: $side-groups;
     .group {
-      padding: 20px 0 40px;
+      padding: 0 0 40px;
       &__name {
+        color: $white;
         font-size: 15px;
       }
       &__message {
+        color: $white;
         font-size: 11px;
         margin-top: 5px;
       }
     }
   }
+}
+a {
+  text-decoration: none;
 }

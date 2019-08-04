@@ -22,8 +22,8 @@ Things you may want to cover:
 
 ### Association
 has_many :messages
-has_many :members
-has_many :groups, through: : members
+has_many :group_user
+has_many :groups, through: : group_user
 
 
 ## groupsテーブル
@@ -34,11 +34,11 @@ has_many :groups, through: : members
 
 ### Association
 has_many :messages
-has_many :members
-has_many :users, through: : members
+has_many :group_user
+has_many :users, through: : group_user
 
 
-## membersテーブル
+## group_userテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|

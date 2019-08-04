@@ -1,6 +1,15 @@
 .hedder-message {
-  background-color: $light-blue;
-  height: 28px;
   text-align: center;
   color: $white;
+  // 成功
+  .notice {
+    background-color: $light-blue;
+
+  }
+  // 失敗
+  .alert {
+    background-color: $alert_orange;
+
+  }
+  
 }
