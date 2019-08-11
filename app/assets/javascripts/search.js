@@ -1,6 +1,6 @@
 $(function() {
 
-  var search_list = $("#user-search-result");
+  var searchList = $("#user-search-result");
   var addMember = $(".js-add-user");
   
   function appendCandidate(user) {
@@ -8,12 +8,12 @@ $(function() {
                   <p class="chat-group-user__name">${user.name}</p>
                   <div class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.id}" data-user-name="${user.name}">追加</div>
                 </div>`
-    search_list.append(html);
+    searchList.append(html);
    }
   
   function appendErrMsgToHTML(msg) {
     var html = `<div class="chat-group-user clearfix">${ msg }</div>`
-    search_list.append(html);
+    searchList.append(html);
   }
 
   function appendAddMember(id, name) {
