@@ -20,7 +20,7 @@
           }
         }
       }
-      .right-header {
+      .right-header__button {
         margin-top: 28px;
         padding: 0 20px;
         height: 40px;
@@ -28,17 +28,15 @@
         color: $light-blue;
         border: 1px solid $light-blue;
         float: right; 
-        &__button a {
-          color: $light_blue;
-          text-decoration: none;
-        }       
+        text-decoration: none;  
       }
     }
     .messages {
       background-color: $messages-gray;
       box-sizing: border-box;
       padding: 46px 40px 0;
-      height: calc(100% - 100px - 90px);
+      height: calc(100vh - 190px);
+      overflow: scroll;
       .message {
         .upper-message {
           display: flex;
