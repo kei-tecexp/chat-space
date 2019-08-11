@@ -3,9 +3,7 @@
   %head
   %body
     .wrapper
-
       = render 'shared/side'
-
       .content
         .header
           .left-header
@@ -16,9 +14,9 @@
               .member
               - @group.group_users.each do |group_user|
                 = group_user.user.name
-          .right-header          
-            .right-header__button             
-              = link_to 'Edit' #, edit_group_path(id: :@group.id)
+          = link_to edit_group_path(@group) do
+            .right-header__button Edit               
+
         .messages
           = render partial: 'message', collection: @messages
         .form
