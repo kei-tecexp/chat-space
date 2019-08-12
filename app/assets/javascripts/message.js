@@ -1,6 +1,10 @@
 $(function() {
 
   function buildHTML(message){
+
+    var body = message.body ? `<div class="lower-message__content">${message.body}</div>` : "";
+    var image = message.image_url ? `<img class="lower-message__image" src="${message.image_url}" alt="">` : "";
+
     var html = `<div class="message" data-message-id="${message.id}">
                   <div class="upper-message">
                     <div class="upper-message__user-name">
@@ -9,29 +13,12 @@ $(function() {
                     <div class="upper-message__date">
                       ${message.created_at}
                     </div>
-                  </div>`
-    if (message.image_url && message.body) {
-      html = html +`<div class="lower-meesage">
-                      <div class="lower-message__content">
-                        ${message.body}
-                      </div>
-                      <img class="lower-message__image" src="${message.image_url}" alt="">
-                    </div>
-                    </div>`
-    } else if (message.body) {
-      html = html +`<div class="lower-meesage">
-                      <div class="lower-message__content">
-                        ${message.body}
-                      </div>
-                    </div>
-                    </div>`
-      
-    } else {
-      html = html +`<div class="lower-meesage">
-                      <img class="lower-message__image" src="${message.image_url}" alt="">
-                    </div>
-                    </div>`
-    } 
+                  </div>
+                  <div class="lower-meesage">
+                    ${body}
+                    ${image}
+                  </div>
+                </div>`
     return html;
   }
 
