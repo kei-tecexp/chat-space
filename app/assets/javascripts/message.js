@@ -1,55 +1,24 @@
 $(function() {
 
   function buildHTML(message){
-    if (message.image_url && message.body) {
-      var html = `<div class="message">
-                    <div class="upper-message">
-                      <div class="upper-message__user-name">
-                        ${message.user_name}
-                      </div>
-                      <div class="upper-message__date">
-                        ${message.created_at}
-                      </div>
+
+    var body = message.body ? `<div class="lower-message__content">${message.body}</div>` : "";
+    var image = message.image_url ? `<img class="lower-message__image" src="${message.image_url}" alt="">` : "";
+
+    var html = `<div class="message" data-message-id="${message.id}">
+                  <div class="upper-message">
+                    <div class="upper-message__user-name">
+                      ${message.user_name}
                     </div>
-                    <div class="lower-meesage">
-                      <div class="lower-message__content">
-                        ${message.body}
-                      </div>
-                      <img class="lower-message__image" src="${message.image_url}" alt="">
+                    <div class="upper-message__date">
+                      ${message.created_at}
                     </div>
-                  </div>`
-    } else if (message.body) {
-      var html = `<div class="message">
-                    <div class="upper-message">
-                      <div class="upper-message__user-name">
-                        ${message.user_name}
-                      </div>
-                      <div class="upper-message__date">
-                        ${message.created_at}
-                      </div>
-                    </div>
-                    <div class="lower-meesage">
-                      <div class="lower-message__content">
-                        ${message.body}
-                      </div>
-                    </div>
-                  </div>`
-      
-    } else {
-      var html = `<div class="message">
-                    <div class="upper-message">
-                      <div class="upper-message__user-name">
-                        ${message.user_name}
-                      </div>
-                      <div class="upper-message__date">
-                        ${message.created_at}
-                      </div>
-                    </div>
-                    <div class="lower-meesage">
-                      <img class="lower-message__image" src="${message.image_url}" alt="">
-                    </div>
-                  </div>`
-    } 
+                  </div>
+                  <div class="lower-meesage">
+                    ${body}
+                    ${image}
+                  </div>
+                </div>`
     return html;
   }
 
@@ -76,5 +45,36 @@ $(function() {
       alert('メッセージを入力してください。');
       $('.form__submit').removeAttr('disabled');
     })
+  });
+
+  var reloadMessages = function() {
+    var last_message_id = $('.message').last().data('message-id');
+    $.ajax({
+      url: "api/messages",
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      var insertHTML = '';
+      if (messages.length !== 0) {
+        messages.forEach(function(message){
+          insertHTML = buildHTML(message);
+        });
+        $('.messages').append(insertHTML);
+        $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});   
+      } else {
+
+      }
+    })
+    .fail(function() {
+      console.log('error');
+    });
+  };
+  $(window).on('load',function(){ 
+    var path = location.pathname
+    if (path.match(/^\/groups\/\d*\/messages$/)){
+        setInterval(reloadMessages, 5000);
+    }
   });
 });
