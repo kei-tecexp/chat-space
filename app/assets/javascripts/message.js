@@ -57,9 +57,9 @@ $(function() {
     })
     .done(function(messages) {
       var insertHTML = '';
-      if (messages.length !== 0) {
+      if (messages.length > 0) {
         messages.forEach(function(message){
-          insertHTML = buildHTML(message);
+        insertHTML = buildHTML(message);
         });
         $('.messages').append(insertHTML);
         $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});   
