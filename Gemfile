@@ -42,16 +42,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'rails-controller-testing'
   gem 'factory_bot_rails'
-  gem 'faker'
-  gem 'haml-rails'
-  gem "font-awesome-rails"
-  gem 'devise'
-  gem 'rails-i18n'
-  gem 'carrierwave'
-  gem 'mini_magick'
-  gem 'pry-byebug', group: :development
-  gem 'jquery-rails'  
-
 end
 
 group :development do
@@ -65,6 +55,16 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+  gem 'faker'
+  gem 'haml-rails'
+  gem "font-awesome-rails"
+  gem 'devise'
+  gem 'rails-i18n'
+  gem 'carrierwave'
+  gem 'mini_magick'
+  gem 'pry-byebug', group: :development
+  gem 'jquery-rails'  
 
 group :production do
   gem 'unicorn', '5.4.1'
