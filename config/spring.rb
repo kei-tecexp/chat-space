@@ -1,4 +1,4 @@
-%w(
+CarrierWave%w(
   .ruby-version
   .rbenv-vars
   tmp/restart.txt

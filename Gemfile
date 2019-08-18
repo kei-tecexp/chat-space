@@ -66,9 +66,10 @@ gem "font-awesome-rails"
 gem 'devise'
 gem 'rails-i18n'
 gem 'carrierwave'
+gem 'fog-aws'
 gem 'mini_magick'
 gem 'pry-byebug', group: :development
-gem 'jquery-rails'  
+gem 'jquery-rails'
 
 group :production do
   gem 'unicorn', '5.4.1'
