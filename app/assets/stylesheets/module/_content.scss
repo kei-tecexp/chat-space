@@ -61,8 +61,7 @@
           &__image{
             height: auto;
             width: 200px;
-          }
-            
+          }       
         }
       }
     }
@@ -70,21 +69,26 @@
       background-color: $form-gray;
       box-sizing: border-box;
       height: 90px;
-      padding: 20px 50px 20px 40px;
-      &__message {
-        border: none;
-        float: left;
-        height: 50px;
-        width: calc(100% - 150px);
+      padding: 20px 40px;
+      .new_message{
+        display: flex;
       }
       &__mask {
-        background-color: $white;
-        float: left;
-        height: 50px;
-        padding-right: 10px;
+        position: relative;
+        width: 100%;
+        &__message {
+          height: 50px;
+          width: calc(100% - 50px);
+          padding: 0 40px 0 10px;
+          color: #434a54;
+          border-style: none;       
+        }
         &__image {
-          font-size: 20px;
-          line-height: 50px;
+          font-size: 1.3rem;
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          cursor: pointer;
         }
         .hidden {
           display: none;
@@ -92,13 +96,13 @@
       }
       &__submit {
         background-color: $light-blue;
-        border: none;
         color: $white;
-        float: right;
-        font-size: 16px;
         height: 50px;
         margin-left: 15px;
         padding: 0 30px;
+        width: 100px;
+        margin-left: 15px;
+        cursor: pointer;
       }
     }
   }
