@@ -38,6 +38,7 @@
       height: calc(100vh - 190px);
       overflow: scroll;
       .message {
+        margin-bottom: 40px;
         .upper-message {
           display: flex;
           margin-bottom: 10px;
@@ -53,12 +54,15 @@
           }
         }
         .lower-message {
-          margin-top: 10px;
           &__content {
             color: $dark-gray;
             font-size: 14px;
-            margin-bottom: 40px;
           }
+          &__image{
+            height: auto;
+            width: 200px;
+          }
+            
         }
       }
     }
